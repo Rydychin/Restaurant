@@ -1,0 +1,84 @@
+.taste-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.taste-profile {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.taste-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.taste-profile h3 {
+  margin: 0;
+}
+
+.taste-empty {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.rating-row strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink);
+}
+
+.recommendation-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.recommendation-item {
+  display: grid;
+  gap: 12px;
+}
+
+.recommendation-reason {
+  min-height: 76px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f9fafb;
+  color: var(--ink);
+  padding: 12px;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+.recommendation-reason p {
+  margin: 0 0 8px;
+}
+
+.recommendation-reason small {
+  display: block;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.35;
+}

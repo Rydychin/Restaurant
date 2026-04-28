@@ -1,0 +1,241 @@
+@media (max-width: 920px) {
+  .filter-bar,
+  .restaurant-grid,
+  .recommendation-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-heading,
+  .result-count {
+    grid-column: 1 / -1;
+  }
+
+  .explore-filter-panel .filter-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .result-count {
+    justify-content: start;
+  }
+
+  .feed-item,
+  .restaurant-modal,
+  .taste-layout,
+  .profile-grid,
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .taste-profile {
+    position: static;
+  }
+
+  .mock-map {
+    min-height: 0;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .map-section {
+    height: 100%;
+  }
+
+  .map-layout {
+    grid-template-rows: minmax(220px, 0.9fr) minmax(260px, 1fr);
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+  }
+
+  .map-result-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 38vh;
+    padding-top: 48px;
+  }
+
+  .browse-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filter-bar,
+  .restaurant-grid,
+  .recommendation-list {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-section {
+    width: calc(100% - 28px);
+  }
+
+  .explore-section .browse-header {
+    align-items: stretch;
+  }
+
+  .explore-filter-panel {
+    padding: 16px;
+  }
+
+  .explore-filter-panel .filter-bar,
+  .explore-section .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header,
+  .section-shell,
+  .taste-section {
+    width: calc(100% - 28px);
+  }
+
+  .app-header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .navigation-tabs {
+    justify-content: start;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .tab-button {
+    flex: 0 0 auto;
+    width: 128px;
+  }
+
+  .map-panel .filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .mock-map {
+    min-height: 0;
+    height: 100%;
+    max-height: none;
+  }
+
+  .map-section {
+    width: 100%;
+    height: 100%;
+    padding: 10px 14px 12px;
+  }
+
+  .map-section .browse-header {
+    padding: 0;
+  }
+
+  .map-layout {
+    grid-template-rows: minmax(210px, 0.85fr) minmax(240px, 1fr);
+    gap: 12px;
+  }
+
+  .map-panel {
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .map-panel .filter-bar {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .map-result-list {
+    padding: 10px;
+  }
+
+  .card-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .save-button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .modal-actions,
+  .modal-rating-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .card-footer-actions {
+    width: 100%;
+  }
+
+  .details-button {
+    width: 100%;
+  }
+
+  .profile-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-restaurant-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .compact-save {
+    grid-column: 3;
+  }
+
+  .feed-item .tiktok-shell,
+  .feed-item .tiktok-shell iframe {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .feed-section {
+    padding-inline: 0;
+  }
+
+  .feed-list,
+  .feed-item {
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .app-feed .feed-list,
+  .app-feed .feed-item,
+  .app-feed .feed-item .tiktok-shell,
+  .app-feed .feed-item .tiktok-shell iframe {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .app-feed .feed-section {
+    width: calc(100% - 18px);
+    padding-top: 8px;
+    padding-bottom: 18px;
+  }
+
+  .app-feed .feed-list {
+    border-radius: 12px;
+  }
+
+  .feed-panel {
+    right: 72px;
+    padding: 22px 18px;
+  }
+
+  .feed-actions {
+    right: 10px;
+    bottom: 22px;
+  }
+
+  .feed-action-button {
+    width: 54px;
+  }
+
+  .tiktok-shell,
+  .tiktok-shell iframe {
+    min-height: 340px;
+    height: 340px;
+  }
+}

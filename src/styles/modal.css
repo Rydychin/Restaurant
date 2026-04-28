@@ -1,0 +1,148 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(17, 24, 39, 0.62);
+  backdrop-filter: blur(8px);
+  animation: modal-fade 0.2s ease;
+}
+
+.restaurant-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 390px) minmax(280px, 460px);
+  overflow: hidden;
+  max-height: min(820px, 92vh);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-xl);
+  animation: modal-rise 0.2s ease;
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  min-height: 38px;
+  padding: 0;
+}
+
+.restaurant-modal .tiktok-shell,
+.restaurant-modal .tiktok-shell iframe {
+  min-height: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  overflow: auto;
+  padding: 30px;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.modal-content > p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 16px;
+  margin: 20px 0 4px;
+  padding: 0;
+}
+
+.modal-rating-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f9fafb;
+  padding: 16px;
+}
+
+.modal-rating-card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.modal-rating-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.modal-facts {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+}
+
+.modal-facts div {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.modal-facts dt {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.modal-facts dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.empty-state {
+  padding: 48px 24px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-align: center;
+}
+
+.empty-state p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
