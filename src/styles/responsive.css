@@ -14,6 +14,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .explore-section .restaurant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .result-count {
     justify-content: start;
   }
@@ -24,6 +28,20 @@
   .profile-grid,
   .map-layout {
     grid-template-columns: 1fr;
+  }
+
+  .modal-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-modal {
+    overflow: auto;
+  }
+
+  .restaurant-modal .tiktok-shell,
+  .restaurant-modal .tiktok-shell iframe {
+    min-height: 320px;
+    height: 320px;
   }
 
   .taste-profile {
@@ -85,6 +103,28 @@
   .explore-filter-panel .filter-bar,
   .explore-section .restaurant-grid {
     grid-template-columns: 1fr;
+  }
+
+  .explore-section .compact-card .card-body {
+    padding: 14px;
+  }
+
+  .explore-section .compact-card .card-title-row {
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .explore-section .compact-card .card-actions {
+    justify-content: start;
+  }
+
+  .explore-section .compact-card .card-footer-actions {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .card-image-button {
+    aspect-ratio: 16 / 10;
   }
 
   .app-header,
@@ -165,6 +205,35 @@
     flex-direction: column;
   }
 
+  .modal-backdrop {
+    align-items: start;
+    padding: 12px;
+  }
+
+  .restaurant-modal {
+    width: 100%;
+    max-height: calc(100svh - 24px);
+    border-radius: 10px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-heading h2 {
+    font-size: 1.65rem;
+  }
+
+  .restaurant-modal .tiktok-shell,
+  .restaurant-modal .tiktok-shell iframe {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .modal-video-link {
+    width: 100%;
+  }
+
   .card-footer-actions {
     width: 100%;
   }
@@ -221,7 +290,7 @@
 
   .feed-panel {
     right: 72px;
-    padding: 22px 18px;
+    padding: 22px 16px;
   }
 
   .feed-actions {
@@ -230,7 +299,21 @@
   }
 
   .feed-action-button {
-    width: 54px;
+    width: 48px;
+  }
+
+  .feed-action-button svg {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .feed-panel h3 {
+    font-size: 1.55rem;
+  }
+
+  .feed-description {
+    -webkit-line-clamp: 1;
   }
 
   .tiktok-shell,

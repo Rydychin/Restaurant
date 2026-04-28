@@ -1,4 +1,4 @@
-import { Bookmark, X } from "lucide-react";
+import { Bookmark, MapPin, Star, Utensils, Video, X } from "lucide-react";
 import StarRating from "./StarRating.jsx";
 import TikTokEmbed from "./TikTokEmbed.jsx";
 
@@ -30,9 +30,25 @@ export default function RestaurantModal({
         <TikTokEmbed url={restaurant.tiktokUrl} title={restaurant.name} />
 
         <div className="modal-content">
-          <p className="eyebrow">{restaurant.cuisine}</p>
-          <h2 id="restaurant-modal-title">{restaurant.name}</h2>
-          <p>{restaurant.notes}</p>
+          <div className="modal-heading">
+            <p className="eyebrow">{restaurant.cuisine}</p>
+            <h2 id="restaurant-modal-title">{restaurant.name}</h2>
+            <p>
+              <MapPin size={15} aria-hidden="true" />
+              {restaurant.location}
+            </p>
+          </div>
+
+          <div className="modal-summary">
+            <span>
+              <Star size={16} aria-hidden="true" />
+              {restaurant.rating.toFixed(1)}
+            </span>
+            <span>{restaurant.priceRange}</span>
+            <span>{restaurant.distance.toFixed(1)} mi away</span>
+          </div>
+
+          <p className="modal-notes">{restaurant.notes}</p>
 
           <div className="modal-actions">
             <button
@@ -44,6 +60,10 @@ export default function RestaurantModal({
               <Bookmark size={16} aria-hidden="true" />
               {isSaved ? "Saved" : "Save"}
             </button>
+            <a href={restaurant.tiktokUrl} target="_blank" rel="noreferrer" className="modal-video-link">
+              <Video size={16} aria-hidden="true" />
+              Open video review
+            </a>
           </div>
 
           {onRateRestaurant && (
@@ -66,24 +86,31 @@ export default function RestaurantModal({
 
           <dl className="modal-facts">
             <div>
-              <dt>Address</dt>
-              <dd>{restaurant.address}</dd>
-            </div>
-            <div>
-              <dt>Rating</dt>
-              <dd>{restaurant.rating.toFixed(1)} stars</dd>
-            </div>
-            <div>
               <dt>Must try</dt>
-              <dd>{restaurant.mustTryDish}</dd>
+              <dd>
+                <Utensils size={15} aria-hidden="true" />
+                {restaurant.mustTryDish}
+              </dd>
             </div>
             <div>
               <dt>Best for</dt>
               <dd>{restaurant.bestFor}</dd>
             </div>
             <div>
+              <dt>Address</dt>
+              <dd>{restaurant.address}</dd>
+            </div>
+            <div>
+              <dt>Source creator</dt>
+              <dd>{restaurant.sourceCreator}</dd>
+            </div>
+            <div>
               <dt>Tags</dt>
-              <dd>{restaurant.tasteTags.join(", ")}</dd>
+              <dd className="modal-tag-list">
+                {restaurant.tasteTags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </dd>
             </div>
           </dl>
         </div>

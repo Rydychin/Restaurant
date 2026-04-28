@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Explore from "./components/Explore.jsx";
 import FoodFeed from "./components/FoodFeed.jsx";
 import MapView from "./components/MapView.jsx";
@@ -8,19 +8,54 @@ import RestaurantModal from "./components/RestaurantModal.jsx";
 import TasteMatch from "./components/TasteMatch.jsx";
 import { restaurants, userRatings } from "./data/restaurants.js";
 
+const RATINGS_STORAGE_KEY = "clipdish.ratings";
+const SAVED_STORAGE_KEY = "clipdish.savedIds";
+
 function getInitialRatings() {
   return Object.fromEntries(
     userRatings.map((rating) => [rating.restaurantId, rating.rating])
   );
 }
 
+function getStoredRatings() {
+  try {
+    const storedRatings = window.localStorage.getItem(RATINGS_STORAGE_KEY);
+    const parsedRatings = storedRatings ? JSON.parse(storedRatings) : null;
+    return parsedRatings && typeof parsedRatings === "object" && !Array.isArray(parsedRatings)
+      ? parsedRatings
+      : getInitialRatings();
+  } catch {
+    return getInitialRatings();
+  }
+}
+
+function getInitialSavedIds() {
+  return restaurants.filter((restaurant) => restaurant.saved).map((item) => item.id);
+}
+
+function getStoredSavedIds() {
+  try {
+    const storedSavedIds = window.localStorage.getItem(SAVED_STORAGE_KEY);
+    const parsedSavedIds = storedSavedIds ? JSON.parse(storedSavedIds) : null;
+    return Array.isArray(parsedSavedIds) ? parsedSavedIds : getInitialSavedIds();
+  } catch {
+    return getInitialSavedIds();
+  }
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState("explore");
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const [ratings, setRatings] = useState(getInitialRatings);
-  const [savedIds, setSavedIds] = useState(
-    () => new Set(restaurants.filter((restaurant) => restaurant.saved).map((item) => item.id))
-  );
+  const [ratings, setRatings] = useState(getStoredRatings);
+  const [savedIds, setSavedIds] = useState(() => new Set(getStoredSavedIds()));
+
+  useEffect(() => {
+    window.localStorage.setItem(RATINGS_STORAGE_KEY, JSON.stringify(ratings));
+  }, [ratings]);
+
+  useEffect(() => {
+    window.localStorage.setItem(SAVED_STORAGE_KEY, JSON.stringify([...savedIds]));
+  }, [savedIds]);
 
   function rateRestaurant(restaurantId, rating) {
     setRatings((current) => ({ ...current, [restaurantId]: rating }));

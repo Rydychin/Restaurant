@@ -13,8 +13,9 @@
 .restaurant-modal {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(260px, 390px) minmax(280px, 460px);
+  grid-template-columns: minmax(300px, 430px) minmax(340px, 520px);
   overflow: hidden;
+  width: min(950px, calc(100vw - 32px));
   max-height: min(820px, 92vh);
   border-radius: var(--radius);
   background: var(--surface);
@@ -54,7 +55,16 @@
   justify-content: center;
   width: 38px;
   min-height: 38px;
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
   padding: 0;
+}
+
+.modal-close:hover {
+  border-color: var(--line);
+  background: #f3f4f6;
+  color: var(--ink);
 }
 
 .restaurant-modal .tiktok-shell,
@@ -65,15 +75,62 @@
 
 .modal-content {
   overflow: auto;
-  padding: 30px;
+  padding: 32px;
 }
 
-.modal-content h2 {
+.modal-heading {
+  display: grid;
+  gap: 8px;
+}
+
+.modal-heading h2 {
   margin-bottom: 10px;
   font-size: 2rem;
+  line-height: 1.05;
 }
 
-.modal-content > p {
+.modal-heading p:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.modal-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 16px;
+}
+
+.modal-summary span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f9fafb;
+  color: var(--ink);
+  padding: 0 10px;
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.modal-summary span:first-child {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.modal-summary svg {
+  color: var(--accent);
+  fill: var(--accent);
+}
+
+.modal-notes {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -82,9 +139,42 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 20px 0 4px;
   padding: 0;
+}
+
+.modal-actions .save-button {
+  width: auto;
+}
+
+.modal-video-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f3f4f6;
+  color: var(--ink);
+  padding: 0 12px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background var(--ease),
+    border-color var(--ease),
+    color var(--ease),
+    transform var(--ease);
+}
+
+.modal-video-link:hover {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  transform: translateY(-1px);
 }
 
 .modal-rating-card {
@@ -95,7 +185,7 @@
   margin-top: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #f9fafb;
+  background: var(--brand-soft);
   padding: 16px;
 }
 
@@ -112,13 +202,16 @@
 
 .modal-facts {
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
   margin: 22px 0 0;
 }
 
 .modal-facts div {
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f9fafb;
+  padding: 14px;
 }
 
 .modal-facts dt {
@@ -129,9 +222,32 @@
 }
 
 .modal-facts dd {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
   margin: 4px 0 0;
   color: var(--muted);
   line-height: 1.45;
+}
+
+.modal-facts dd svg {
+  color: var(--accent-dark);
+}
+
+.modal-tag-list {
+  align-items: start;
+}
+
+.modal-tag-list span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  padding: 5px 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .empty-state {
